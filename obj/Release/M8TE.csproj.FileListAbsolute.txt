@@ -1,0 +1,14 @@
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\obj\Release\M8TE.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\obj\Release\M8TE.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\obj\Release\M8TE.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\bin\Release\M8TE.exe.config
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\bin\Release\M8TE.exe
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\bin\Release\M8TE.pdb
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\obj\Release\M8TE.Form1.resources
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\obj\Release\M8TE.Form2.resources
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\obj\Release\M8TE.Form3.resources
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\obj\Release\M8TE.Form4.resources
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\obj\Release\M8TE.Form5.resources
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\obj\Release\M8TE.Properties.Resources.resources
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\obj\Release\M8TE.exe
+C:\Users\User\Desktop\Dad\VS Projects\M8TE\obj\Release\M8TE.pdb

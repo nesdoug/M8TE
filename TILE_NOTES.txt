@@ -1,0 +1,48 @@
+8BPP SNES
+  Colors Per Tile - 0-255
+  Space Used - 8 bits per pixel.  64 bytes for a 8x8 tile.
+
+  Note: This is a tiled, planar bitmap format.
+  Each pair represents one byte.
+  Format:
+
+  [r0, bp1], [r0, bp2], [r1, bp1], [r1, bp2], [r2, bp1], [r2, bp2], [r3, bp1], [r3, bp2]
+  [r4, bp1], [r4, bp2], [r5, bp1], [r5, bp2], [r6, bp1], [r6, bp2], [r7, bp1], [r7, bp2]
+  [r0, bp3], [r0, bp4], [r1, bp3], [r1, bp4], [r2, bp3], [r2, bp4], [r3, bp3], [r3, bp4]
+  [r4, bp3], [r4, bp4], [r5, bp3], [r5, bp4], [r6, bp3], [r6, bp4], [r7, bp3], [r7, bp4]
+  [r0, bp5], [r0, bp6], [r1, bp5], [r1, bp6], [r2, bp5], [r2, bp6], [r3, bp5], [r3, bp6]
+  [r4, bp5], [r4, bp6], [r5, bp5], [r5, bp6], [r6, bp5], [r6, bp6], [r7, bp5], [r7, bp6]
+  [r0, bp7], [r0, bp8], [r1, bp7], [r1, bp8], [r2, bp7], [r2, bp8], [r3, bp7], [r3, bp8]
+  [r4, bp7], [r4, bp8], [r5, bp7], [r5, bp8], [r6, bp7], [r6, bp8], [r7, bp7], [r7, bp8]
+
+  Short Description:
+
+  Bitplanes 1 and 2 are stored first, intertwined row by row.  Bitplanes 3 and 4 are stored 
+  next intertwined row by row.  Then Bitplanes 5 and 6 intertwined row by row.  Finally, 
+  Bitplanes 7 and 8 are stored intertwined row by row.
+
+
+
+Mode 7 SNES
+  Colors Per Tile - 0-255
+  Space used - 8 bits per pixel.  64 bytes for a 8x8 tile.
+
+  Note: This is a tiled, linear bitmap format.
+  Each pair represents 1 byte.
+  Format:
+
+  [p0 r0: bp!], [p1 r0: bp!], [p2 r0: bp!], [p3 r0: bp!]
+  [p4 r0: bp!], [p5 r0: bp!], [p6 r0: bp!], [p7 r0: bp!]
+  [p0 r1: bp!], [p1 r1: bp!], [p2 r1: bp!], [p3 r1: bp!]
+  [p4 r1: bp!], [p5 r1: bp!], [p6 r1: bp!], [p7 r1: bp!]
+  ...
+  [p0 r7: bp!], [p1 r7: bp!], [p2 r7: bp!], [p3 r7: bp!]
+  [p4 r7: bp!], [p5 r7: bp!], [p6 r7: bp!], [p7 r7: bp!]
+
+  Short Description:
+
+  Each pixel has it's bitplanes stored right after another, so each byte directly references
+  a palette color without needing to "combine" the bitplanes.
+
+
+
