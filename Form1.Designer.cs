@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -646,49 +647,49 @@
             // loadPaletteToolStripMenuItem
             // 
             this.loadPaletteToolStripMenuItem.Name = "loadPaletteToolStripMenuItem";
-            this.loadPaletteToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.loadPaletteToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.loadPaletteToolStripMenuItem.Text = "Load 256 Colors";
             this.loadPaletteToolStripMenuItem.Click += new System.EventHandler(this.loadPaletteToolStripMenuItem_Click);
             // 
             // load32BytesToolStripMenuItem
             // 
             this.load32BytesToolStripMenuItem.Name = "load32BytesToolStripMenuItem";
-            this.load32BytesToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.load32BytesToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.load32BytesToolStripMenuItem.Text = "Load 16 Colors to Row";
             this.load32BytesToolStripMenuItem.Click += new System.EventHandler(this.load32BytesToolStripMenuItem_Click);
             // 
             // loadPaletteFromRGBToolStripMenuItem
             // 
             this.loadPaletteFromRGBToolStripMenuItem.Name = "loadPaletteFromRGBToolStripMenuItem";
-            this.loadPaletteFromRGBToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.loadPaletteFromRGBToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.loadPaletteFromRGBToolStripMenuItem.Text = "Load Palette from RGB";
             this.loadPaletteFromRGBToolStripMenuItem.Click += new System.EventHandler(this.loadPaletteFromRGBToolStripMenuItem_Click);
             // 
             // savePaletteToolStripMenuItem
             // 
             this.savePaletteToolStripMenuItem.Name = "savePaletteToolStripMenuItem";
-            this.savePaletteToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.savePaletteToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.savePaletteToolStripMenuItem.Text = "Save 256 Colors";
             this.savePaletteToolStripMenuItem.Click += new System.EventHandler(this.savePaletteToolStripMenuItem_Click);
             // 
             // save32BytesToolStripMenuItem
             // 
             this.save32BytesToolStripMenuItem.Name = "save32BytesToolStripMenuItem";
-            this.save32BytesToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.save32BytesToolStripMenuItem.Text = "Save 16 Color from Row";
+            this.save32BytesToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.save32BytesToolStripMenuItem.Text = "Save 16 Colors from Row";
             this.save32BytesToolStripMenuItem.Click += new System.EventHandler(this.save32BytesToolStripMenuItem_Click);
             // 
             // savePaletteAsASMToolStripMenuItem
             // 
             this.savePaletteAsASMToolStripMenuItem.Name = "savePaletteAsASMToolStripMenuItem";
-            this.savePaletteAsASMToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.savePaletteAsASMToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.savePaletteAsASMToolStripMenuItem.Text = "Save Palette as ASM";
             this.savePaletteAsASMToolStripMenuItem.Click += new System.EventHandler(this.savePaletteAsASMToolStripMenuItem_Click);
             // 
             // savePalAsRGBToolStripMenuItem
             // 
             this.savePalAsRGBToolStripMenuItem.Name = "savePalAsRGBToolStripMenuItem";
-            this.savePalAsRGBToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.savePalAsRGBToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.savePalAsRGBToolStripMenuItem.Text = "Save Palette as RGB";
             this.savePalAsRGBToolStripMenuItem.Click += new System.EventHandler(this.savePalAsRGBToolStripMenuItem_Click);
             // 
@@ -707,21 +708,21 @@
             this.mode3TopToolStripMenuItem.Checked = true;
             this.mode3TopToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mode3TopToolStripMenuItem.Name = "mode3TopToolStripMenuItem";
-            this.mode3TopToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mode3TopToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.mode3TopToolStripMenuItem.Text = "Mode 3";
             this.mode3TopToolStripMenuItem.Click += new System.EventHandler(this.bGmode3TopToolStripMenuItem_Click);
             // 
             // mode7ToolStripMenuItem
             // 
             this.mode7ToolStripMenuItem.Name = "mode7ToolStripMenuItem";
-            this.mode7ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mode7ToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.mode7ToolStripMenuItem.Text = "Mode 7";
             this.mode7ToolStripMenuItem.Click += new System.EventHandler(this.bGmode7ToolStripMenuItem_Click);
             // 
             // mode7preToolStripMenuItem
             // 
             this.mode7preToolStripMenuItem.Name = "mode7preToolStripMenuItem";
-            this.mode7preToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mode7preToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.mode7preToolStripMenuItem.Text = "Mode 7 Preview";
             this.mode7preToolStripMenuItem.Click += new System.EventHandler(this.bGmode7preToolStripMenuItem_Click);
             // 
@@ -1214,13 +1215,14 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1000, 800);
             this.MinimumSize = new System.Drawing.Size(820, 680);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "M8TE - SNES 8bpp Tile Editor ver 1.0.2";
+            this.Text = "M8TE - SNES 8bpp Tile Editor ver 1.1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

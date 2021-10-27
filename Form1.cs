@@ -1395,7 +1395,7 @@ namespace M8TE
                 return;
             }
 
-            Checkpoint();
+            //Checkpoint();
 
             active_map_x = 0; active_map_y = 0;
             var mouseEventArgs = e as MouseEventArgs;
@@ -1417,6 +1417,8 @@ namespace M8TE
 
             if (e.Button == MouseButtons.Left)
             {
+                Checkpoint(); // only if left click
+
                 clone_start_x = active_map_x;
                 clone_start_y = active_map_y;
 

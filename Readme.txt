@@ -1,5 +1,5 @@
-M8TE ver 1.0 (SNES 8bpp Tile Editor) 
-Oct 17, 2021
+M8TE ver 1.1 (SNES 8bpp Tile Editor) 
+Oct 27, 2021
 .NET 4.5.2 (works with MONO on non-Windows systems)
 For SNES game development. Mode 3 or 7.
 Freeware by Doug Fraker
@@ -10,6 +10,7 @@ The MIT License (MIT)
 
 version changes
 1.0 - initial
+1.1 - minor cosmetic changes
 
 
 
