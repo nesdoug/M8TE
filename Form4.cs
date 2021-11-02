@@ -84,7 +84,7 @@ namespace M8TE
                 MessageBox.Show("Error. Start value > end value.");
                 return;
             }
-            if((end_val - start_val) > 512)
+            if((end_val - start_val) > 511)
             {
                 MessageBox.Show("Sorry. Max file size of 512 tiles.");
                 return;

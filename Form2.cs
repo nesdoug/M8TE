@@ -148,7 +148,8 @@ namespace M8TE
             {
                 int color = Tiles.Tile_Arrays[index];
                 
-                Form1.pal_x = color;
+                Form1.pal_x = color & 0x0f;
+                Form1.pal_y = (color >> 4) & 0x0f;
                 f.update_palette();
                 f.rebuild_pal_boxes();
             }
