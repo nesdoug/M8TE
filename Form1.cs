@@ -93,6 +93,7 @@ namespace M8TE
         public static double dither_db = 0.0;
         public static bool f3_cb1 = false, f3_cb2 = false;
         public static bool flip_h = false, flip_v = false;
+        public static int max_import_color = 256;
 
         public static bool undo_ready = false;
         public static int which_map, which_map_x, which_map_y, which_map_backup;
@@ -235,7 +236,8 @@ namespace M8TE
         // 16x16 grid
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            update_tilemap();
+            //update_tilemap();
+            common_update2();
             label5.Focus();
         }
 
@@ -947,6 +949,29 @@ namespace M8TE
                 g.PixelOffsetMode = PixelOffsetMode.Half; // fix bug, missing half a pixel on top and left
                 g.DrawImage(image_tiles, 0, 0, 256, 256);
             } // standard resize of bmp was blurry, this makes it sharp
+
+            //draw grid here
+            if (checkBox4.Checked == true)
+            {
+                //draw horizontal lines at each 16
+                for (int i = 31; i < 255; i += 32)
+                {
+                    for (int j = 0; j < 255; j += 2)
+                    {
+                        temp_bmp.SetPixel(j, i, Color.Black);
+                        temp_bmp.SetPixel(j + 1, i, Color.LightGray);
+                    }
+                }
+                //draw vertical lines at each 16
+                for (int j = 31; j < 255; j += 32)
+                {
+                    for (int i = 0; i < 255; i += 2)
+                    {
+                        temp_bmp.SetPixel(j, i + 1, Color.Black);
+                        temp_bmp.SetPixel(j, i, Color.LightGray);
+                    }
+                }
+            }
 
             //put a white box around the selected tile
             int pos_x = 0; int pos_y = 0;
@@ -2279,8 +2304,9 @@ namespace M8TE
 
                     int num_col_to_find, start_offset;
 
-
-                    num_col_to_find = 256;
+                    if (max_import_color < 2) max_import_color = 2;
+                    if (max_import_color > 256) max_import_color = 256;
+                    num_col_to_find = max_import_color; //256;
                     start_offset = 0;
 
 
@@ -2460,7 +2486,7 @@ namespace M8TE
 
                     // always palette zero
                     // zero fill the palette, before filling (black)
-                    for (int i = 0; i < num_col_to_find; i++)
+                    for (int i = 0; i < 256; i++)
                     {
                         int j = start_offset + i;
                         Palettes.pal_r[j] = 0;
@@ -2484,7 +2510,7 @@ namespace M8TE
                     }
 
                     // then sort by darkness
-                    for(int i = 0; i < 16; i++) // zero them
+                    for(int i = 0; i < 256; i++) // zero them
                     {
                         c256ColorsAdded[i] = 0;
                     }

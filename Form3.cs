@@ -30,14 +30,9 @@ namespace M8TE
         {
             // set the information
             textBox1.Text = Form1.dither_factor.ToString();
-            /*if(Form1.f3_cb1 == false)
-            {
-                checkBox1.Checked = false;
-            }
-            else
-            {
-                checkBox1.Checked = true;
-            }*/
+
+            textBox2.Text = Form1.max_import_color.ToString();
+
             if (Form1.f3_cb2 == false)
             {
                 checkBox2.Checked = false;
@@ -83,6 +78,27 @@ namespace M8TE
             str = value.ToString();
             textBox1.Text = str;
             Form1.dither_factor = value;
+            skipTextChange = false;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (skipTextChange == true) return;
+
+            string str = textBox2.Text;
+            if (str == "") return;
+            if (str == "1") return;
+
+
+            skipTextChange = true;
+
+            int value = 0;
+            int.TryParse(str, out value);
+            if (value > 256) value = 256; // max value
+            if (value < 2) value = 2; // min value
+            str = value.ToString();
+            textBox2.Text = str;
+            Form1.max_import_color = value;
             skipTextChange = false;
         }
     }

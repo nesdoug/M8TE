@@ -1,5 +1,5 @@
-M8TE ver 1.2 (SNES 8bpp Tile Editor) 
-Nov 2, 2021
+M8TE ver 1.3 (SNES 8bpp Tile Editor) 
+June 1, 2022
 .NET 4.5.2 (works with MONO on non-Windows systems)
 For SNES game development. Mode 3 or 7.
 Freeware by Doug Fraker
@@ -14,6 +14,10 @@ version changes
 1.2 - fixed "save in range" off by 1 error
     - fixed rt click on tile editor bug
     - changed the default palette
+1.3 - fixed a bug in the import palette where
+      sometimes it wouldn't sort by brightness
+    - import palette options allow less than 
+      256 colors to get from an image
 
 
 This app is for generating, editing, and arranging 
