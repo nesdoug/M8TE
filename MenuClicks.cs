@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace M8TE
 {
-    public partial class Form1
+    public partial class frmMain
     {
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         { // FILE / OPEN SESSION
@@ -2072,7 +2072,7 @@ namespace M8TE
             }
             else
             {
-                newChild4 = new Form4();
+                newChild4 = new frmSave3();
                 newChild4.Owner = this;
 
                 newChild4.Top = this.Top + 100;
@@ -2182,7 +2182,7 @@ namespace M8TE
             }
             else
             {
-                newChild5 = new Form5();
+                newChild5 = new frmSave7();
                 newChild5.Owner = this;
 
                 newChild5.Top = this.Top + 100;

@@ -12,18 +12,18 @@ using System.Windows.Forms;
 
 namespace M8TE
 {
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
-        public Form1()
+        public frmMain()
         {
             InitializeComponent();
             this.Location = new Point(Screen.PrimaryScreen.Bounds.X, Screen.PrimaryScreen.Bounds.Y);
 
         }
-        static Form2 newChild = null;
-        static Form3 newChild3 = null;
-        static Form4 newChild4 = null;
-        static Form5 newChild5 = null;
+        static frmTileEditor newChild = null;
+        static frmOptions newChild3 = null;
+        static frmSave3 newChild4 = null;
+        static frmSave7 newChild5 = null;
 
         public static void close_it()
         {
@@ -888,7 +888,7 @@ namespace M8TE
                         for (int m = 0; m < 8; m++) // pixel column = x
                         {
                             int color = 0;
-                            int index = (Form1.tile_set * 256 * 8 * 8) + (temp_tile_num * 8 * 8) + (k * 8) + m;
+                            int index = (frmMain.tile_set * 256 * 8 * 8) + (temp_tile_num * 8 * 8) + (k * 8) + m;
                             int pal_index = Tiles.Tile_Arrays[index]; // pixel in tile array
                             
                             
@@ -1045,7 +1045,7 @@ namespace M8TE
             }
             else
             {
-                newChild = new Form2();
+                newChild = new frmTileEditor();
                 newChild.Owner = this;
                 int xx = Screen.PrimaryScreen.Bounds.Width;
                 if (this.Location.X + 970 < xx) // set new form location
@@ -2870,7 +2870,7 @@ namespace M8TE
             }
             else
             {
-                newChild3 = new Form3();
+                newChild3 = new frmOptions();
                 newChild3.Owner = this;
                 
                 newChild3.Top = this.Top + 100;

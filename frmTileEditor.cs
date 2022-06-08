@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace M8TE
 {
-    public partial class Form2 : Form
+    public partial class frmTileEditor : Form
     {
-        public Form2()
+        public frmTileEditor()
         {
             InitializeComponent();
         }
@@ -21,7 +21,7 @@ namespace M8TE
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             //trying to figure out how to send information between forms
-            Form1.close_it();
+            frmMain.close_it();
             image_tile_box.Dispose();
         }
 
@@ -38,7 +38,7 @@ namespace M8TE
                 for(int j = 0;j < 8; ++j) //column = x
                 {
                     int color = 0;
-                    int index = (Form1.tile_set*256*8*8) + (Form1.tile_num*8*8) + (i*8) + j;
+                    int index = (frmMain.tile_set*256*8*8) + (frmMain.tile_num*8*8) + (i*8) + j;
                     int pal_index = Tiles.Tile_Arrays[index]; //pixel in tile array
 
                     color = pal_index;
@@ -99,16 +99,16 @@ namespace M8TE
                 if (pixel_x > 7) pixel_x = 7;
                 if (pixel_y > 7) pixel_y = 7;
 
-                int index = (Form1.tile_set * 256 * 8 * 8) + (Form1.tile_num * 8 * 8) + (pixel_y * 8) + pixel_x;
+                int index = (frmMain.tile_set * 256 * 8 * 8) + (frmMain.tile_num * 8 * 8) + (pixel_y * 8) + pixel_x;
                 int color = 0;// (Form1.pal_y * 16) + Form1.pal_x; // which color is selected in palette
                 
-                color = Form1.pal_x + (Form1.pal_y * 16);
+                color = frmMain.pal_x + (frmMain.pal_y * 16);
                 Tiles.Tile_Arrays[index] = color;
 
                 //update tileset picture too
                 //common_update();
                 update_tile_box();
-                Form1 f = (this.Owner as Form1);
+                frmMain f = (this.Owner as frmMain);
                 f.update_tile_image();
                 f.tile_show_num();
                 //skip the map, do with mouse up event
@@ -120,7 +120,7 @@ namespace M8TE
         {
             int pixel_x = 0;
             int pixel_y = 0;
-            Form1 f = (this.Owner as Form1);
+            frmMain f = (this.Owner as frmMain);
 
             var mouseEventArgs = e as MouseEventArgs;
             if (mouseEventArgs != null)
@@ -133,7 +133,7 @@ namespace M8TE
             if (pixel_x > 7) pixel_x = 7;
             if (pixel_y > 7) pixel_y = 7;
 
-            int index = (Form1.tile_set * 256 * 8 * 8) + (Form1.tile_num * 8 * 8) + (pixel_y * 8) + pixel_x;
+            int index = (frmMain.tile_set * 256 * 8 * 8) + (frmMain.tile_num * 8 * 8) + (pixel_y * 8) + pixel_x;
 
             if(e.Button == MouseButtons.Left)
             {
@@ -141,15 +141,15 @@ namespace M8TE
                 
                 int color = 0; // (Form1.pal_y * 16) + Form1.pal_x; // which color is selected in palette
                 
-                color = Form1.pal_x + (Form1.pal_y * 16);
+                color = frmMain.pal_x + (frmMain.pal_y * 16);
                 Tiles.Tile_Arrays[index] = color;
             }
             else if(e.Button == MouseButtons.Right)
             {
                 int color = Tiles.Tile_Arrays[index];
                 
-                Form1.pal_x = color & 0x0f;
-                Form1.pal_y = (color >> 4) & 0x0f;
+                frmMain.pal_x = color & 0x0f;
+                frmMain.pal_y = (color >> 4) & 0x0f;
                 f.update_palette();
                 f.rebuild_pal_boxes();
             }
@@ -167,7 +167,7 @@ namespace M8TE
         private void common_update() // for clicks and drags
         {
             update_tile_box();
-            Form1 f = (this.Owner as Form1);
+            frmMain f = (this.Owner as frmMain);
             f.update_tile_image();
             f.tile_show_num();
             f.update_tilemap();
@@ -175,7 +175,7 @@ namespace M8TE
 
         private void Form2_KeyDown(object sender, KeyEventArgs e)
         {
-            Form1 f = (this.Owner as Form1);
+            frmMain f = (this.Owner as frmMain);
 
             if (e.KeyCode == Keys.Left)
             {
@@ -203,26 +203,26 @@ namespace M8TE
             }
             else if (e.KeyCode == Keys.NumPad2) // down
             {
-                if (Form1.tile_y < 15) Form1.tile_y++;
-                Form1.tile_num = (Form1.tile_y * 16) + Form1.tile_x;
+                if (frmMain.tile_y < 15) frmMain.tile_y++;
+                frmMain.tile_num = (frmMain.tile_y * 16) + frmMain.tile_x;
                 common_update();
             }
             else if (e.KeyCode == Keys.NumPad4) // left
             {
-                if (Form1.tile_x > 0) Form1.tile_x--;
-                Form1.tile_num = (Form1.tile_y * 16) + Form1.tile_x;
+                if (frmMain.tile_x > 0) frmMain.tile_x--;
+                frmMain.tile_num = (frmMain.tile_y * 16) + frmMain.tile_x;
                 common_update();
             }
             else if (e.KeyCode == Keys.NumPad6) // right
             {
-                if (Form1.tile_x < 15) Form1.tile_x++;
-                Form1.tile_num = (Form1.tile_y * 16) + Form1.tile_x;
+                if (frmMain.tile_x < 15) frmMain.tile_x++;
+                frmMain.tile_num = (frmMain.tile_y * 16) + frmMain.tile_x;
                 common_update();
             }
             else if (e.KeyCode == Keys.NumPad8) // up
             {
-                if (Form1.tile_y > 0) Form1.tile_y--;
-                Form1.tile_num = (Form1.tile_y * 16) + Form1.tile_x;
+                if (frmMain.tile_y > 0) frmMain.tile_y--;
+                frmMain.tile_num = (frmMain.tile_y * 16) + frmMain.tile_x;
                 common_update();
             }
             else if (e.KeyCode == Keys.H)
@@ -299,13 +299,13 @@ namespace M8TE
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            Form1 f = (this.Owner as Form1);
+            frmMain f = (this.Owner as frmMain);
             f.update_tilemap();
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            Form1 f = (this.Owner as Form1);
+            frmMain f = (this.Owner as frmMain);
 
             var mouseEventArgs = e as MouseEventArgs;
             if (mouseEventArgs == null) return;

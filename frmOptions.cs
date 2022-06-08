@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace M8TE
 {
-    public partial class Form3 : Form
+    public partial class frmOptions : Form
     {
-        public Form3()
+        public frmOptions()
         {
             InitializeComponent();
         }
@@ -23,17 +23,17 @@ namespace M8TE
 
         private void Form3_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form1.close_it3();
+            frmMain.close_it3();
         }
 
         private void Form3_Load(object sender, EventArgs e)
         {
             // set the information
-            textBox1.Text = Form1.dither_factor.ToString();
+            textBox1.Text = frmMain.dither_factor.ToString();
 
-            textBox2.Text = Form1.max_import_color.ToString();
+            textBox2.Text = frmMain.max_import_color.ToString();
 
-            if (Form1.f3_cb2 == false)
+            if (frmMain.f3_cb2 == false)
             {
                 checkBox2.Checked = false;
             }
@@ -53,11 +53,11 @@ namespace M8TE
         {
             if (checkBox2.Checked == false)
             {
-                Form1.f3_cb2 = false;
+                frmMain.f3_cb2 = false;
             }
             else
             {
-                Form1.f3_cb2 = true;
+                frmMain.f3_cb2 = true;
             }
         }
 
@@ -77,7 +77,7 @@ namespace M8TE
             if (value < 0) value = 0; // min value
             str = value.ToString();
             textBox1.Text = str;
-            Form1.dither_factor = value;
+            frmMain.dither_factor = value;
             skipTextChange = false;
         }
 
@@ -98,7 +98,7 @@ namespace M8TE
             if (value < 2) value = 2; // min value
             str = value.ToString();
             textBox2.Text = str;
-            Form1.max_import_color = value;
+            frmMain.max_import_color = value;
             skipTextChange = false;
         }
     }
