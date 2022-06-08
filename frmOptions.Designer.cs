@@ -1,7 +1,7 @@
 ﻿
 namespace M8TE
 {
-    partial class Form3
+    partial class frmOptions
     {
         /// <summary>
         /// Required designer variable.

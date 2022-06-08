@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace M8TE
 {
-    public partial class Form5 : Form
+    public partial class frmSave7 : Form
     {
-        public Form5()
+        public frmSave7()
         {
             InitializeComponent();
         }
@@ -22,7 +22,7 @@ namespace M8TE
 
         private void Form5_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form1.close_it5();
+            frmMain.close_it5();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace M8TE
             saveFileDialog1.Title = "Save Tiles in Range, Mode 7";
             //saveFileDialog1.ShowDialog();
 
-            Form1 f = (this.Owner as Form1);
+            frmMain f = (this.Owner as frmMain);
 
             if ((saveFileDialog1.ShowDialog() == DialogResult.OK) && (saveFileDialog1.FileName != ""))
             {
@@ -117,7 +117,7 @@ namespace M8TE
                     // global rle_array[] now has our compressed data
                     for (int i = 0; i < rle_length; i++)
                     {
-                        fs.WriteByte(Form1.rle_array[i]);
+                        fs.WriteByte(frmMain.rle_array[i]);
                     }
 
                     float percent = (float)rle_length / out_size;
