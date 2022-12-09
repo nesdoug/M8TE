@@ -41,6 +41,14 @@ namespace M8TE
             {
                 checkBox2.Checked = true;
             }
+            if (Form1.f3_cb3 == false)
+            {
+                checkBox3.Checked = false;
+            }
+            else
+            {
+                checkBox3.Checked = true;
+            }
             skipTextChange = false;
         }
 
@@ -101,5 +109,18 @@ namespace M8TE
             Form1.max_import_color = value;
             skipTextChange = false;
         }
+
+        private void checkBox3_Click(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked == false)
+            {
+                Form1.f3_cb3 = false;
+            }
+            else
+            {
+                Form1.f3_cb3 = true;
+            }
+        }
+
     }
 }

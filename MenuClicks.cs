@@ -2623,6 +2623,16 @@ namespace M8TE
             tile_set = 0;
             label10.Text = "1";
 
+            // deselect tile
+            tile_x = 0;
+            tile_y = 0;
+            tile_num = 0;
+            BE_x1 = tile_x;
+            BE_x2 = BE_x1 + 1;
+            BE_y1 = tile_y;
+            BE_y2 = BE_y1 + 1;
+            Tiles.Make_Box_Same();
+
             if (newChild != null)
             {
                 newChild.update_tile_box();
@@ -2654,6 +2664,16 @@ namespace M8TE
             
             tile_set = 1;
             label10.Text = "2";
+
+            // deselect tile
+            tile_x = 0;
+            tile_y = 0;
+            tile_num = 0;
+            BE_x1 = tile_x;
+            BE_x2 = BE_x1 + 1;
+            BE_y1 = tile_y;
+            BE_y2 = BE_y1 + 1;
+            Tiles.Make_Box_Same();
 
             if (newChild != null)
             {
@@ -2688,6 +2708,16 @@ namespace M8TE
             tile_set = 2;
             label10.Text = "3";
 
+            // deselect tile
+            tile_x = 0;
+            tile_y = 0;
+            tile_num = 0;
+            BE_x1 = tile_x;
+            BE_x2 = BE_x1 + 1;
+            BE_y1 = tile_y;
+            BE_y2 = BE_y1 + 1;
+            Tiles.Make_Box_Same();
+
             if (newChild != null)
             {
                 newChild.update_tile_box();
@@ -2713,13 +2743,22 @@ namespace M8TE
                 return;
             }
 
-            if(tile_y >= 12)
+            /*if(tile_y >= 12)
             {
                 tile_y = 0;
                 tile_x = 0;
-                tile_num = (tile_y * 16) + tile_x;
+                tile_num = 0;
                 tile_show_num();
-            }
+            }*/
+            // deselect tile
+            tile_x = 0;
+            tile_y = 0;
+            tile_num = 0;
+            BE_x1 = tile_x;
+            BE_x2 = BE_x1 + 1;
+            BE_y1 = tile_y;
+            BE_y2 = BE_y1 + 1;
+            Tiles.Make_Box_Same();
 
             set1ToolStripMenuItem.Checked = false;
             set2ToolStripMenuItem.Checked = false;
@@ -2866,6 +2905,181 @@ namespace M8TE
             MapMenuSwitch();
             common_update2();
         }
+
+
+        // BRUSHES
+
+        private void x1ToolStripMenuItem_Click(object sender, EventArgs e)
+        { // brush size
+            if (brushsize == BRUSH_MULTI) Tiles.Has_Copied = false;
+
+            brushsize = BRUSH1x1;
+            x1ToolStripMenuItem.Checked = true;
+            x3ToolStripMenuItem.Checked = false;
+            x5ToolStripMenuItem.Checked = false;
+            x2NextToolStripMenuItem.Checked = false;
+            //cloneFromTilesetToolStripMenuItem.Checked = false;
+            //cloneFromMapToolStripMenuItem.Checked = false;
+            fillScreenToolStripMenuItem.Checked = false;
+            multiSelectToolStripMenuItem.Checked = false;
+            mapEditOnlyToolStripMenuItem.Checked = false;
+
+            //update_tile_image();
+            common_update2();
+        }
+
+        private void x3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (brushsize == BRUSH_MULTI) Tiles.Has_Copied = false;
+
+            brushsize = BRUSH3x3;
+            x1ToolStripMenuItem.Checked = false;
+            x3ToolStripMenuItem.Checked = true;
+            x5ToolStripMenuItem.Checked = false;
+            x2NextToolStripMenuItem.Checked = false;
+            //cloneFromTilesetToolStripMenuItem.Checked = false;
+            //cloneFromMapToolStripMenuItem.Checked = false;
+            fillScreenToolStripMenuItem.Checked = false;
+            multiSelectToolStripMenuItem.Checked = false;
+            mapEditOnlyToolStripMenuItem.Checked = false;
+
+            //update_tile_image();
+            common_update2();
+        }
+
+        private void x5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (brushsize == BRUSH_MULTI) Tiles.Has_Copied = false;
+
+            brushsize = BRUSH5x5;
+            x1ToolStripMenuItem.Checked = false;
+            x3ToolStripMenuItem.Checked = false;
+            x5ToolStripMenuItem.Checked = true;
+            x2NextToolStripMenuItem.Checked = false;
+            //cloneFromTilesetToolStripMenuItem.Checked = false;
+            //cloneFromMapToolStripMenuItem.Checked = false;
+            fillScreenToolStripMenuItem.Checked = false;
+            multiSelectToolStripMenuItem.Checked = false;
+            mapEditOnlyToolStripMenuItem.Checked = false;
+
+            //update_tile_image();
+            common_update2();
+        }
+
+        private void multiSelectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (brushsize != BRUSH_MULTI)
+            {
+                Tiles.Has_Copied = false;
+                BE_x1 = tile_x; // fix bug
+                BE_x2 = BE_x1 + 1;
+                BE_y1 = tile_y;
+                BE_y2 = BE_y1 + 1;
+            }
+
+            brushsize = BRUSH_MULTI;
+            x1ToolStripMenuItem.Checked = false;
+            x3ToolStripMenuItem.Checked = false;
+            x5ToolStripMenuItem.Checked = false;
+            x2NextToolStripMenuItem.Checked = false;
+            //cloneFromTilesetToolStripMenuItem.Checked = false;
+            //cloneFromMapToolStripMenuItem.Checked = false;
+            fillScreenToolStripMenuItem.Checked = false;
+            multiSelectToolStripMenuItem.Checked = true;
+            mapEditOnlyToolStripMenuItem.Checked = false;
+
+            Tiles.Make_Box_Same();
+
+            //update_tile_image();
+            common_update2();
+        }
+
+        private void mapEditOnlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            brushsize = BRUSH_MAP_ED;
+            x1ToolStripMenuItem.Checked = false;
+            x3ToolStripMenuItem.Checked = false;
+            x5ToolStripMenuItem.Checked = false;
+            x2NextToolStripMenuItem.Checked = false;
+            //cloneFromTilesetToolStripMenuItem.Checked = false;
+            //cloneFromMapToolStripMenuItem.Checked = false;
+            fillScreenToolStripMenuItem.Checked = false;
+            multiSelectToolStripMenuItem.Checked = false;
+            mapEditOnlyToolStripMenuItem.Checked = true;
+
+            ME_x1 = active_map_x;
+            ME_x2 = ME_x1 + 1;
+            ME_y1 = active_map_y;
+            ME_y2 = ME_y1 + 1;
+            ME_has_copied = false;
+            checkBox1.Checked = false;
+            checkBox2.Checked = false; // just skip these
+            checkBox5.Checked = false;
+            checkBox6.Checked = false;
+
+            //update_tile_image();
+            common_update2();
+        }
+
+        private void x2NextToolStripMenuItem_Click(object sender, EventArgs e)
+        { // drop current tile and it's neighbors in a 16x16 box
+            if (brushsize == BRUSH_MULTI) Tiles.Has_Copied = false;
+
+            brushsize = BRUSHNEXT;
+            x1ToolStripMenuItem.Checked = false;
+            x3ToolStripMenuItem.Checked = false;
+            x5ToolStripMenuItem.Checked = false;
+            x2NextToolStripMenuItem.Checked = true;
+            //cloneFromTilesetToolStripMenuItem.Checked = false;
+            //cloneFromMapToolStripMenuItem.Checked = false;
+            fillScreenToolStripMenuItem.Checked = false;
+            multiSelectToolStripMenuItem.Checked = false;
+            mapEditOnlyToolStripMenuItem.Checked = false;
+        }
+
+        private void fillScreenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (brushsize == BRUSH_MULTI) Tiles.Has_Copied = false;
+
+            //BRUSH_FILL
+            brushsize = BRUSH_FILL;
+            x1ToolStripMenuItem.Checked = false;
+            x3ToolStripMenuItem.Checked = false;
+            x5ToolStripMenuItem.Checked = false;
+            x2NextToolStripMenuItem.Checked = false;
+            //cloneFromTilesetToolStripMenuItem.Checked = false;
+            //cloneFromMapToolStripMenuItem.Checked = false;
+            fillScreenToolStripMenuItem.Checked = true;
+            multiSelectToolStripMenuItem.Checked = false;
+            mapEditOnlyToolStripMenuItem.Checked = false;
+
+            //update_tile_image();
+            common_update2();
+        }
+
+        /*private void cloneFromTilesetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            brushsize = BRUSH_CLONE_T;
+            x1ToolStripMenuItem.Checked = false;
+            x3ToolStripMenuItem.Checked = false;
+            x5ToolStripMenuItem.Checked = false;
+            x2NextToolStripMenuItem.Checked = false;
+            cloneFromTilesetToolStripMenuItem.Checked = true;
+            cloneFromMapToolStripMenuItem.Checked = false;
+            fillScreenToolStripMenuItem.Checked = false;
+        }
+
+        private void cloneFromMapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            brushsize = BRUSH_CLONE_M;
+            x1ToolStripMenuItem.Checked = false;
+            x3ToolStripMenuItem.Checked = false;
+            x5ToolStripMenuItem.Checked = false;
+            x2NextToolStripMenuItem.Checked = false;
+            cloneFromTilesetToolStripMenuItem.Checked = false;
+            cloneFromMapToolStripMenuItem.Checked = true;
+            fillScreenToolStripMenuItem.Checked = false;
+        }*/
 
 
 

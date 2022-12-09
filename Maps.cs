@@ -33,4 +33,19 @@ namespace M8TE
         // but, you can't see the difference here
 
     }
+
+    public static class MapsC // copy and paste backup
+    {
+        // only backup 1 map, the current one
+        public static int[] tile = new int[32 * 32]; //x, y
+        //tile can be value 0-1023, high 2 bits references the tileset
+
+        public static int[] palette = new int[32 * 32]; //x, y
+        public static int[] h_flip = new int[32 * 32]; //x, y
+        public static int[] v_flip = new int[32 * 32]; //x, y
+        public static int[] priority = new int[32 * 32]; //x, y
+        // priority affects how sprite layers show above or below
+        // but, you can't see the difference here
+
+    }
 }

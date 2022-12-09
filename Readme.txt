@@ -1,5 +1,5 @@
-M8TE ver 1.3 (SNES 8bpp Tile Editor) 
-June 1, 2022
+M8TE ver 1.5 (SNES 8bpp Tile Editor) 
+Dec 9, 2022
 .NET 4.5.2 (works with MONO on non-Windows systems)
 For SNES game development. Mode 3 or 7.
 Freeware by Doug Fraker
@@ -7,7 +7,7 @@ Freeware by Doug Fraker
 
 The MIT License (MIT)
 
-
+    
 version changes
 1.0 - initial
 1.1 - minor cosmetic changes
@@ -18,7 +18,23 @@ version changes
       sometimes it wouldn't sort by brightness
     - import palette options allow less than 
       256 colors to get from an image
-
+1.4 - added brushes "multi select" and "map edit"
+      (replaces clone brushes, now removed)
+    - command keys x=cut and a=select all added.
+    - change v=paste and y=vertical flip
+    - slight change to "best color" formula
+      (should prefer a color closer to the original hue
+      rather than a wrong color of the same brightness)
+    - minor bug fixes
+    - added a checkbox on import options, auto-
+      put imported tiles on map (now off by default)
+    - importing a 128x128 image (or smaller)
+      now only blanks the needed tiles,
+      and starts at the selected tile
+    - allow small images to be imported as palettes
+      (as small as 2x1) to allow 16x1 images as a palette
+1.5 - bumped up version # to show that
+      there were lots of changes 
 
 This app is for generating, editing, and arranging 
 SNES tiles and tilemaps (and palettes).
@@ -100,8 +116,8 @@ mode 3 - 4 sets of 8bpp tiles
 mode 7 - 1 set of 8bpp tiles
 
 Left click/Right click to open an editing box.
-Numberpad 2,4,6,8 to move to adjacent tile.
-C - copy, P - paste.
+Numberpad 2,4,6,8 to move to adjacent tile. (some brushes only)
+(see the key commands below)
 1,2,3,4 - to change the tilset.
 
 * the last 64 tiles (tileset 4, Mode 3) are blocked.
@@ -116,13 +132,15 @@ Right click - get the color under the pointer
 Numberpad 2,4,6,8 to move to adjacent tile.
 Arrow keys to shift the image.
 F - fills a tile with selected color
-H - flip horizontal (notice the symmetric shape of the letter W)
-V - flip vertical (notice the symmetric shape of the letter E)
+H - flip horizontal
+Y - flip vertical
 R - rotate clockwise
 L - rotate counter clockwise
 Delete - fills with color 0 (transparent)
 C - copy
+X - cut
 P - paste
+A - select all (only works for some brushes)
 
 
 
@@ -169,15 +187,26 @@ x+$10, x+$11 of the selected tile in a 2x2 block on the
 screen. This might be useful if the tileset has tiles 
 arranged in 16x16 blocks.
 
-(since you can't select multiple tiles, you have these)
-Clone from Tiles and Clone from Map. Right click to select 
-the starting tile. Click and drag on the map will place 
-tiles, copying from the source. No wrap around allowed.
+(Clone from Tiles and Clone from Map. Removed/Replaced)
 
 Fill the Map - click on a map to fill it with the selected 
 tile. (mode 7, this fills only the current 32x32 map)
 
-HELPFUL TIP! - Use Number pad 2,4,6,8 to switch to adjacent tile.
+Multi Tile Select (this is what you should be using mostly) - 
+you can now select multiple tiles at once, and flip/shift/copy/etc
+and place them on the map all as a block. But, the code to update 
+the map is slower, so if you are only placing a single tile at a 
+time, it will be smoother using the 1x1 brush.
+
+Map Edit Only - You can now select multiple tiles on the map view
+with this brush, and copy/cut/paste/fill/delete and flip them
+all at once. 
+(some of the checkboxes are disabled with this brush/mode.
+Use key commands to flip - h and y)
+Tip - Combine fill (f) with "palette only" to change 
+the palette of the selected area.
+You can't rotate or pixel shift in this mode.
+(note - mode 7 tiles don't flip)
 
 
 
@@ -187,7 +216,8 @@ All the menu options should be self-explanatory. Some of
 them won't work if you are in the wrong mode. The message 
 box should explain the problem.
 
-Loading a 16 color palette loads to the currently selected palette row. Same with saving 16 color. It saves the 
+Loading a 16 color palette loads to the currently selected 
+palette row. Same with saving 16 color. It saves the 
 currently selected palette row.
 
 Saving Maps only saves the currently selected map. Loading 
@@ -221,7 +251,7 @@ can use like a copy/paste with the above.
 Maps/Load to Selected Y* - first select a location in the
 tile map, then this will load a map starting at that row
 
-Maps/Load to Selected 7, Offset to Selected Tile* - First
+Maps/Load to Selected Y, Offset to Selected Tile* - First
 select a tile map location, then select a tile in the set,
 then choose this to load a map at the specific map row,
 and it will also change the tile numbers in the map you
@@ -245,6 +275,8 @@ First, select options and set a dither level.
 Then, get the palette from the image (or make your own palette).
 Finally, get the tiles/map from the image.
 -CAUTION, it will erase the entire tileset and the current map
+ (only if it is larger than 128x128, a small image will only
+  delete the needed area)
 -if a file has an indexed palette, it will not read it... 
 it always auto-generates an optimized palette
 -in Mode 7 the size limit is 128x128 pixel.
@@ -281,7 +313,7 @@ Native .M8 file format details...
 
 ///////////////////////////////////////////////
 TODO-
--more map load/save options in Mode 7
+-more load map options (mode 7)
 -make it easier to change maps, like...
  scroll bars for mode 7 ?
 ///////////////////////////////////////////////

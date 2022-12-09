@@ -34,6 +34,7 @@ namespace M8TE
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -85,11 +86,23 @@ namespace M8TE
             this.textBox2.Text = "256";
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(37, 136);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(101, 17);
+            this.checkBox3.TabIndex = 7;
+            this.checkBox3.Text = "Put tiles on map";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.Click += new System.EventHandler(this.checkBox3_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(214, 162);
+            this.ClientSize = new System.Drawing.Size(214, 183);
+            this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.checkBox2);
@@ -101,7 +114,7 @@ namespace M8TE
             this.MinimumSize = new System.Drawing.Size(230, 200);
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Options";
+            this.Text = "Import Options";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form3_FormClosed);
             this.Load += new System.EventHandler(this.Form3_Load);
             this.ResumeLayout(false);
@@ -116,5 +129,6 @@ namespace M8TE
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
     }
 }
