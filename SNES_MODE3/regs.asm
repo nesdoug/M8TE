@@ -98,7 +98,6 @@ TIMEUP = $4211 ;IRQ Flag
 HVBJOY = $4212 ;PPU Status
 RDIO = $4213 ;Programmable I/O port (in-port)
 RDDIVL = $4214 ;Quotient of Divide Result low byte
-
 RDDIVH = $4215 ;Quotient of Divide Result high byte
 RDMPYL = $4216 ;Multiplication Product or Divide Remainder low byte
 RDMPYH = $4217 ;Multiplication Product or Divide Remainder high byte
@@ -131,7 +130,7 @@ CH3 = $30
 CH4 = $40
 CH5 = $50
 CH6 = $60
-CH7 = $70
+
 
 
 

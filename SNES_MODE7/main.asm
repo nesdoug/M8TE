@@ -227,26 +227,26 @@ Wait_NMI:
 
 BG_Palette:
 ; 512 bytes
-.incbin "M8TE/Lenna.pal"
+.incbin "M8TE/dog.pal"
 
 
 Tilemap:
 ; $4000 bytes
-.incbin "M8TE/Lenna128.map"
+.incbin "M8TE/dog128.map"
 
 
 .segment "RODATA2"
 
 Tiles:
 ; 8bpp tileset
-.incbin "M8TE/Lenna7.chr"
+.incbin "M8TE/dog7.chr"
 
 .segment "RODATA3"
 
 
 Tilemap2:
 ; $4000 bytes
-.incbin "M8TE/Lenna32.map"
+.incbin "M8TE/dog32.map"
 
 
 

@@ -150,19 +150,19 @@ DMA_VRAM:
 
 BG_Palette:
 ; 512 bytes
-.incbin "M8TE/Lenna.pal"
+.incbin "M8TE/dog.pal"
 
 Tiles:
 ; 8bpp tileset compressed
-.incbin "RLE/LennaCHR.rle"
+.incbin "RLE/dogCHR1.rle"
 
 Tilemap:
 ; tilemap compressed
-.incbin "RLE/LennaMap.rle"
+.incbin "RLE/dogMap.rle"
 
 .segment "RODATA2"
 
 Tiles2:
 ; 8bpp tileset compressed
-.incbin "RLE/LennaCHR2.rle"
+.incbin "RLE/dogCHR2.rle"
 
